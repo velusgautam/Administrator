@@ -3,8 +3,6 @@ $booster->js_minify = true;
 $booster->js_source = '../assets/js/jquery.min.js,../assets/js/jquery.jpanelmenu.min.js,../assets/js/bootstrap.min.js';
 echo $booster->js_markup();
 ?>
-
-
 <?php
 if ($surl == "reportBalanceSchoolFees.php" || $surl == "studentAfterTCListing.php" || $surl == "studentArchiveListing.php" || $surl == "studentPromotion.php" || $surl == "applicationFeeSetting.php" || $surl == "applicationReceipt.php" || $surl == "admissionFormUpdate.php" || $surl == "applicationForm.php" || $surl ==
     "admissionForm.php" || $surl == "studentListing.php" || $surl ==
