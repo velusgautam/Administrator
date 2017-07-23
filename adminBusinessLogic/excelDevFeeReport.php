@@ -10,14 +10,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['excel']) && $_POST['excel'] == 'Excel Export') {
         $academicYear = trim($_POST['academicYear']);
 		$schoolId = trim($_POST['school']);
-		$month = trim($_POST['month']);
+		$month = trim($_POST['status']);
 		$query =null;
 		
 		 if ($academicYear) {
             if ($_SESSION['Role'] == '1') {
 					if($schoolId > 0 && $month != "All"  && $month > 0)
 					{
-							$query = "Select TSDF.student_id, TSDF.date, MONTHNAME(TSDF.date) as month,  TSDF.academic_year, TSDF.student_name, TSS.school_name,TSC.class_name, TSDF.development_fees,  TSDF.waive_off, TSDF.total, (TSDF.development_fees - (TSDF.waive_off +TSDF.total)) as Balance  FROM "
+							$query = "Select TSDF.student_id, TSDF.date, MONTHNAME(TSDF.date) as month,  TSDF.academic_year, TSDF.student_name, TSS.school_name,TSC.class_name, TSDF.development_fees, TSDF.add_on, TSDF.waive_off, TSDF.total, ((TSDF.development_fees + TSDF.add_on) - (TSDF.waive_off +TSDF.total)) as Balance  FROM "
 									. TABLE_STUDENT_DEVELOPMENT_FEE . " TSDF
 									INNER JOIN " . TABLE_STUDENT . " TS on TSDF.student_id = TS.student_id
 									INNER JOIN " . TABLE_SCHOOL . " TSS on TS.schl_id= TSS.schl_id
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					}
 					else if ($schoolId > 0 && $month == "All")
 					{
-							$query = "Select TSDF.student_id, TSDF.date,  MONTHNAME(TSDF.date) as month,  TSDF.academic_year, TSDF.student_name, TSS.school_name,TSC.class_name, TSDF.development_fees,  TSDF.waive_off, TSDF.total, (TSDF.development_fees - (TSDF.waive_off +TSDF.total)) as Balance  FROM "
+							$query = "Select TSDF.student_id, TSDF.date,  MONTHNAME(TSDF.date) as month,  TSDF.academic_year, TSDF.student_name, TSS.school_name,TSC.class_name, TSDF.development_fees, TSDF.add_on, TSDF.waive_off, TSDF.total, ((TSDF.development_fees + TSDF.add_on) - (TSDF.waive_off +TSDF.total)) as Balance  FROM "
 									. TABLE_STUDENT_DEVELOPMENT_FEE . " TSDF
 									INNER JOIN " . TABLE_STUDENT . " TS on TSDF.student_id = TS.student_id
 									INNER JOIN " . TABLE_SCHOOL . " TSS on TS.schl_id= TSS.schl_id
@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					}
 					else if ($schoolId == -1 && $month == "All")
 					{
-							$query = "Select TSDF.student_id, TSDF.date, MONTHNAME(TSDF.date) as month,  TSDF.academic_year, TSDF.student_name, TSS.school_name,TSC.class_name, TSDF.development_fees,  TSDF.waive_off, TSDF.total, (TSDF.development_fees - (TSDF.waive_off +TSDF.total)) as Balance  FROM "
+							$query = "Select TSDF.student_id, TSDF.date, MONTHNAME(TSDF.date) as month,  TSDF.academic_year, TSDF.student_name, TSS.school_name,TSC.class_name, TSDF.development_fees, TSDF.add_on, TSDF.waive_off, TSDF.total, ((TSDF.development_fees + TSDF.add_on) - (TSDF.waive_off +TSDF.total)) as Balance  FROM "
 									. TABLE_STUDENT_DEVELOPMENT_FEE . " TSDF
 									INNER JOIN " . TABLE_STUDENT . " TS on TSDF.student_id = TS.student_id
 									INNER JOIN " . TABLE_SCHOOL . " TSS on TS.schl_id= TSS.schl_id
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					}
 
             	} elseif ($_SESSION['Role'] == '2') {
-                		$query = "Select TSDF.student_id, TSDF.date,  MONTHNAME(TSDF.date) as month,  TSDF.academic_year, TSDF.student_name, TSS.school_name,TSC.class_name, TSDF.development_fees,  TSDF.waive_off, TSDF.total, (TSDF.development_fees - (TSDF.waive_off +TSDF.total)) as Balance  FROM "
+                		$query = "Select TSDF.student_id, TSDF.date,  MONTHNAME(TSDF.date) as month,  TSDF.academic_year, TSDF.student_name, TSS.school_name,TSC.class_name, TSDF.development_fees, TSDF.add_on, TSDF.waive_off, TSDF.total, ((TSDF.development_fees + TSDF.add_on) - (TSDF.waive_off +TSDF.total)) as Balance  FROM "
                     			. TABLE_STUDENT_DEVELOPMENT_FEE . " TSDF
 								INNER JOIN " . TABLE_STUDENT . " TS on TSDF.student_id = TS.student_id
 								INNER JOIN " . TABLE_SCHOOL . " TSS on TS.schl_id= TSS.schl_id
@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		// 		}
         // }
        
-        $headerNames = array("StudentID", "Date", "Month","Academic Year", "Student Name", "School Name", "Class Name", "Development Fees", "Waived Off", "Paid", "Balance");
+        $headerNames = array("StudentID", "Date", "Month","Academic Year", "Student Name", "School Name", "Class Name", "Development Fees", "Add On", "Waived Off", "Paid", "Balance");
 
         require_once("excel.php");
 

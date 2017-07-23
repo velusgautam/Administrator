@@ -27,7 +27,7 @@ require_once("includes/headerScripts.php");
                 });
 				$('#ExcelBtn').click('change', function () {
                     $("#search").ajaxForm({
-	                    url: 'adminBusinessLogic/excelGeneratorFeeListing.php',
+	                    url: 'adminBusinessLogic/excelDevFeeReport.php',
                         success: function (html) {
                             $("#loading1").css("display", "none");
                             $("#ExcelBtn").css("display", "");
@@ -44,9 +44,10 @@ require_once("includes/headerScripts.php");
 
     <body class="inside-body">
         <body class="inside-body">
-            <?php include_once('includes/topBody.php'); ?>
+            <?php include_once('includes/topBody.php'); ?>            
+            <?php require_once("includes/topNewMessagesBar.php"); ?>
             <div class="container">
-                <?php include_once('includes/menu.php'); ?>                
+                <?php include_once('includes/developmentMenu.php'); ?>                
                 <div class="row-fluid">
                     <div class="span12">
                         <div class="span 12 padding well">
@@ -67,6 +68,8 @@ require_once("includes/headerScripts.php");
                                         <td style="width:6%">Search</td>
                                     </tr>
                                     <tr>
+                                        <input type="hidden" name="excel" value="Excel Export" >
+
                                         <?php if($admin) {echo '
                                         <td>
                                             <select name="school" id="school" style="width: 140px">';

@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") /* checking whether form is posted */
 	 if(!empty($_school) && $_school != "All" )
 	{
 		$inside =1;
-		$sql .= " AND  TSFP.schl_id= ".trim($_school)."" ;
+		$sql .= " AND  TSS.schl_id= ".trim($_school)."" ;
 	}
 
 	if (intval($_status) > 0 )
@@ -49,16 +49,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") /* checking whether form is posted */
 
     $sql .= "  ORDER BY TSDF.date DESC ";
 
-//	echo $sql."--".intval($_status);
-
 
 $result = $db->query($sql);
 $i=0;
 	$total = 0;
-echo '<table class="data-table">
+    echo '<table class="data-table">
 						<thead>
 							<tr >
-
 								<th>Sl.No</th>
                                 <th>Month</th>
                                 <th>Student Name</th>
@@ -112,10 +109,11 @@ echo '<tr>
                                 <th></th>
                                 <th></th>
                                 <th></th>
-                                <th></th>
-                                <th></th>
-                                <th class="right" style="text-align: right; font-size:16px">Total :</th>
+                               
+                                
+                                <th class="right" style="text-align: right; font-size:16px" colspan="2">Total :</th>
                                 <th class="center" style="padding-right: 20px;font-size:16px">'.$total.'</th>
+                                 <th></th>
 							</tr>';
 echo '</tbody><tfoot>
 							<tr>
