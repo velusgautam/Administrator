@@ -111,6 +111,9 @@ echo '<tr>
                                 <th></th>
                                 <th></th>
                                 <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
                                 <th class="right" style="text-align: right; font-size:16px">Total :</th>
                                 <th class="center" style="padding-right: 20px;font-size:16px">'.$total.'</th>
 							</tr>';

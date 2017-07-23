@@ -3,7 +3,7 @@ $booster->js_minify = true;
 $booster->js_source = '../assets/js/jquery.min.js,../assets/js/jquery.jpanelmenu.min.js,../assets/js/bootstrap.min.js';
 echo $booster->js_markup();
 ?>
-<?php
+    <?php
 if ($surl == "reportBalanceSchoolFees.php" || $surl == "studentAfterTCListing.php" || $surl == "studentArchiveListing.php" || $surl == "studentPromotion.php" || $surl == "applicationFeeSetting.php" || $surl == "applicationReceipt.php" || $surl == "admissionFormUpdate.php" || $surl == "applicationForm.php" || $surl ==
     "admissionForm.php" || $surl == "studentListing.php" || $surl ==
     "feePayment.php" || $surl == "generateTc.php" || $surl == "applicationFormUpdate.php" || $surl == "studentRegistration.php" || $surl == "staffRegistration.php" || $surl == "studentChangeListing.php" || $surl == "studentUpdate.php"
@@ -13,7 +13,7 @@ if ($surl == "reportBalanceSchoolFees.php" || $surl == "studentAfterTCListing.ph
     $booster->js_source = '../assets/js/jquery.form.js,../assets/js/jquery.cookie.js';
     echo $booster->js_markup();
 }
-if ($surl == "reportSchoolFees.php" || $surl == "developmentFeeReport1.php") {
+if ($surl == "reportSchoolFees.php" || $surl == "developmentFeeReport.php") {
     $booster->js_minify = true;
     $booster->js_source = '../assets/js/jquery.form.js';
     echo $booster->js_markup();
