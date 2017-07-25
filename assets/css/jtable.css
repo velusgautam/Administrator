@@ -249,6 +249,15 @@ form.jtable-dialog-form div.jtable-input {
     padding: 2px;
 }
 
+form.jtable-dialog-form div.jtable-date-input {
+    /* No additional style */
+
+}
+
+form.jtable-dialog-form div.jtable-text-input {
+    /* No additional style */
+
+}
 
 form.jtable-dialog-form span.jtable-option-text-clickable {
     position: relative;

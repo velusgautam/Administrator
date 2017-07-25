@@ -19,7 +19,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") /* checking whether form is posted */
     {
         $_school = $_SESSION['SchoolCode'];
     }
-   
+
+    $_stream = $_POST['stream'];
+    $_class = $_POST['classSelect'];
+    $_division = $_POST['division'];
     $_status = $_POST['status'];
     $_academicYear = $_POST['academicYear'];
 	$inside = 0;
@@ -40,7 +43,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") /* checking whether form is posted */
 		$inside =1;
 		$sql .= " AND  TSFP.schl_id= ".trim($_school)."" ;
 	}
-
+//	if(!empty($_stream) && $_stream != "All" )
+//	{
+//		$inside =1;
+//		$sqlClass = "Select class_id FROM ".TABLE_CLASS_MAPPING." Where `stream_id` = ".trim($_stream);
+//		$resultClass = $db->query($sqlClass);
+//		while($rowClass = $db->fetch_array($resultClass)){
+//			$_classId .= $rowClass['class_id'].",";
+//		}
+//		$_classId = trim($_classId, ",");
+//		$sql .= " AND FIND_IN_SET (tss.class_id, '".$_classId."')";
+//	}
+//
+//	if(  !empty($_class) && $_class != "All" )
+//	{
+//		$inside =1;
+//		$sql .= "  AND tss.class_id  = '".$_class."'";
+//	}
+//	if(!empty($_division) && $_division != "All"  )
+//	{
+//		$inside =1;
+//		$sql .= "  AND tss.division_id  = '".$_division."'";
+//	}
 	if (intval($_status) > 0 )
 	{
 		$sql .= " AND MONTH(TSFP.date) = '".$_status."'";

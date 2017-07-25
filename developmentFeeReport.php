@@ -44,8 +44,7 @@ require_once("includes/headerScripts.php");
 
     <body class="inside-body">
         <body class="inside-body">
-            <?php include_once('includes/topBody.php'); ?>            
-            <?php require_once("includes/topNewMessagesBar.php"); ?>
+            <?php include_once('includes/topBody.php'); ?>
             <div class="container">
                 <?php include_once('includes/developmentMenu.php'); ?>                
                 <div class="row-fluid">
@@ -68,8 +67,7 @@ require_once("includes/headerScripts.php");
                                         <td style="width:6%">Search</td>
                                     </tr>
                                     <tr>
-                                        <input type="hidden" name="excel" value="Excel Export" >
-
+                                        <input type="hidden" value="Excel Export" name="excel">
                                         <?php if($admin) {echo '
                                         <td>
                                             <select name="school" id="school" style="width: 140px">';
@@ -158,13 +156,18 @@ require_once("includes/headerScripts.php");
                                     <thead>
                                         <tr >
 
-                                            <th>Date</th>
+                                            <th>Sl No</th>
+                                            <th>Month</th>
                                             <th>StudentName</th>
                                             <th>School</th>
-                                            <th>Stream</th>
+                                           
                                             <th>Class</th>
-                                            <th>Division</th>
+                                            
                                             <th>AcademicYear</th>
+                                            <th>Development Fees</th>
+                                            <th>Waived Off</th>
+                                            <th>Balance</th>
+                                            <th>Add On</th>
                                             <th class="center">Status</th>
 
                                         </tr>
@@ -177,13 +180,18 @@ require_once("includes/headerScripts.php");
                                     <tfoot>
                                         <tr>
 
-                                            <th style="padding-left: 20px">Date</th>
+                                            <th style="padding-left: 20px">Sl No</th>
+                                            <th>Month</th>
                                             <th>StudentName</th>
                                             <th>School</th>
-                                            <th>Stream</th>
+                                           
                                             <th>Class</th>
-                                            <th>Division</th>
+                                           
                                             <th>AcademicYear</th>
+                                            <th>Development Fees</th>
+                                             <th>Waived Off</th>
+                                            <th>Balance</th>
+                                            <th>Add On </th>
                                             <th class="center" style="padding-right: 20px">Status</th>
 
                                         </tr>

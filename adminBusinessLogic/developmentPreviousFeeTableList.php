@@ -97,6 +97,9 @@
                 waive_off:  {
                     title: 'Waived Off'
                 },
+				add_on:  {
+                    title: 'Add On'
+                },
 				<?php if($status['payment_status']==1 || $status['payment_status']==2)
 			{?>
 				payment_now:         {

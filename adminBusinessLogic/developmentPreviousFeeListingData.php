@@ -11,7 +11,7 @@
 				$result = mysql_query("SELECT COUNT(*) AS RecordCount  FROM `" . TABLE_STUDENT_DEVELOPMENT_FEE . "`  WHERE `student_id`= " . $_GET["studid"] . " ");
 				$row = mysql_fetch_array($result);
 				$recordCount = $row['RecordCount'];
-				$sql = "SELECT @a:=@a+1 sl, id, student_name, academic_year, DATE_FORMAT(date,'%d-%m-%Y') as date, waive_off, development_fees, payment_type,cheque_no,cheque_date,cheque_bank, total  FROM `" . TABLE_STUDENT_DEVELOPMENT_FEE . "`,
+				$sql = "SELECT @a:=@a+1 sl, id, student_name, coalesce(add_on, 0) as add_on, academic_year, DATE_FORMAT(date,'%d-%m-%Y') as date, waive_off, development_fees, payment_type,cheque_no,cheque_date,cheque_bank, total  FROM `" . TABLE_STUDENT_DEVELOPMENT_FEE . "`,
             (SELECT @a:= 0) AS a WHERE `student_id`= " . $_GET["studid"] . " ORDER BY " . $_GET["jtSorting"] . " LIMIT " .
 					$_GET["jtStartIndex"] . ",
             " . $_GET["jtPageSize"] . ";";

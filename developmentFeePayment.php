@@ -139,7 +139,7 @@
 									if($rows['admission_status'] ==2)
 										$developmentFees =  $developmentFeeAmount['fee_re_amount'];
 									else
-										$developmentFees =  $developmentFeeAmount['fee_amount'];
+										$developmentFees =  $developmentFeeAmount['fee_amount']
 								?>
 								<input type="text" style="text-align: right; width: 100px; margin-left: 50px" name="developmentFees"
 								       id="developmentFees" tabindex="10" value="<?php print $developmentFees ?>" readonly>
